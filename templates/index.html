@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Proyecto</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/user-form.css" th:href="@{/css/user-form.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- DATA TABLE -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- datepicker
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="js/bootstrap-datetimepicker.min.js"></script>-->
+
+    <!-- plugin -->
+    <script src="https://www.virtuosoft.eu/code/bootstrap-duallistbox/bootstrap-duallistbox/v3.0.2/jquery.bootstrap-duallistbox.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://www.virtuosoft.eu/code/bootstrap-duallistbox/bootstrap-duallistbox/v3.0.2/bootstrap-duallistbox.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+            $('#ccod').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+
+            <ul class="nav nav-tabs justify-content-end navbar navbar-expand-lg ">
+
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+						 <span class="navbar-toggler-icon"></span>
+					 </button>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Archivos maestros</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="false">Nuevo cliente</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="formmat-tab" data-toggle="tab" href="#formmat" role="tab" aria-controls="formmat" aria-selected="true">Nuevo material</a>
+                                    </li>
+                                    <div class="dropdown-divider"></div>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="true">Buscar cliente</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="listm-tab" data-toggle="tab" href="#listm" role="tab" aria-controls="listm" aria-selected="true">Gestionar listas</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Pedidos</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="false">Nuevo pedido</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="formmat-tab" data-toggle="tab" href="#formmat" role="tab" aria-controls="formmat" aria-selected="true">Pedidos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Orden de compra</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Despacho</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navbar-collapse.// -->
+                </div>
+                <!-- container-fluid.// -->
+
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Buscar cliente</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="ccod" class="table table-bordered table-hover table-striped">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Fecha ingreso</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">N. Identificación Fiscal</th>
+                                            <th scope="col">Dirección Fiscal</th>
+                                            <th scope="col">Dirección Despacho</th>
+                                            <th scope="col">Límite crédito</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cliente in clientes %}
+                                        <tr>
+
+                                            <td>{{ cliente.ccod}} </th>
+                                                <td>{{ cliente.cfechac}}</td>
+                                                <td>{{ cliente.cnombre}}</td>
+                                                <td>{{ cliente.cnfiscal}}</td>
+                                                <td>{{ cliente.cdcfiscal}}</td>
+                                                <td>{{ cliente.cdcdespacho}}</td>
+                                                <td>{{ cliente.climite}}</td>
+                                                <td>
+                                                    <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+                                                </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Agregar cliente</h4>
+                        </div>
+                        <div class="card-body row-fluid">
+
+                            <form class="form" action="/crearCliente/" method="POST" role="form" autocomplete="off">
+                                {% csrf_token %}
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row" style="float: right;">
+                                    <label for="cfechac" class="col-lg-3 col-form-label form-control-label">Fecha creación</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="date" name="cfechac" value="{{ form.cfechac}}" id="cfechac" placeholder="00-00-0000" required>
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="cnombre" class="col-lg-3 col-form-label form-control-label">Nombre cliente</label>
+                                    <div class="col-lg-9">
+                                        <input id="cnombre" class="form-control" type="text" name="cnombre" value="{{ form.cnombre}}" placeholder="Juan Perez" required>
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="cnfiscal" class="col-lg-3 col-form-label form-control-label">N. Ident. Fiscal</label>
+                                    <div class="col-lg-9">
+                                        <input id="cnfiscal" class="form-control" type="text" name="cnfiscal" value="{{ form.cnfiscal}}" placeholder="1111111">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="cdcfiscal" class="col-lg-3 col-form-label form-control-label">Dirección fiscal</label>
+                                    <div class="col-lg-9">
+                                        <input id="cdcfiscal" class="form-control" type="text" name="cdcfiscal" value="{{ form.cdcfiscal}}" placeholder="las amapolas 123">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="cdcdespacho" class="col-lg-3 col-form-label form-control-label">Dirección despacho</label>
+                                    <div class="col-lg-9">
+                                        <input id="cdcdespacho" class="form-control" type="text" name="cdcdespacho" value="{{ form.cdcdespacho}}" placeholder="las amapolas 123">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="climite" class="col-lg-3 col-form-label form-control-label">Límite crédito</label>
+                                    <div class="col-lg-9">
+                                        <input id="climite" class="form-control" type="text" name="climite" value="{{ form.climite}}" placeholder="100000">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <button type="submit" class="btn btn-primary" value="Guardar">Guardar cliente</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="formmat" role="tabpanel" aria-labelledby="formmat-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Agregar material</h4>
+                        </div>
+                        <div class="card-body row-fluid">
+
+                            <form class="form" role="formmat" autocomplete="off">
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Código material</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre material</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Unidad de medida</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Descripción</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Precio</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="sel1" class="col-lg-3 col-form-label form-control-label">Tipo material</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-select col-lg-6" id="sel1">
+										  <option>Importado </option>
+										  <option>Nacional</option>
+										</select>
+
+                                    </div>
+
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input type="button" class="btn btn-primary" value="Guardar material">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="listm" role="tabpanel" aria-labelledby="listm-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Gestionar lista</h4>
+                        </div>
+                        <div class="card-body row-fluid">
+
+                            <form class="form" role="formmat" autocomplete="off">
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Código lista</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Vigencia desde</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Vigencia hasta</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label for="sel1" class="col-lg-3 col-form-label form-control-label">Material</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-select field col-lg-6" id="sel1">
+										  <option>Importado</option>
+										  <option>Nacional</option>
+										</select>
+                                    </div>
+                                </div>
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row" style="justify-content: center;">
+                                    <label for="sel1" class="col-lg-3 col-form-label form-control-label">Materiales</label>
+                                    <div class="container">
+                                        <div class="row text-center" style="margin-bottom: 40px; align-items: center;">
+                                            <div class="col">
+                                                <form id="demoform">
+                                                    <select multiple="multiple" size="10" name="duallistbox_demo1[]" title="duallistbox_demo1[]" style="margin-top: 100px;">
+										  <option value="payee1">Aviva Insurance - Business - 987654</option>
+										  <option value="payee2">Bell Mobility - 66853 (John Smith)</option>
+										  <option value="payee3">Bell Mobility - 75432 (Jane Smith)</option>
+										  <option value="payee4">Bell Mobility - 98765 (Jim Smith)</option>
+										  <option value="payee5">Canadian Tire Commercial Mastercard - **** 5525</option>
+										  <option value="payee6">Canadian Tire Mastercard - **** 3158 (President's Card)</option>
+										  <option value="payee7">FedEx Express Canada - 54321</option>
+										  <option value="payee8">Lowes Canada - 12345</option>
+										  <option value="payee9">Mastercard, PC Financial - **** 5535</option>
+										  <option value="payee10">Qtrade Investor - 12345</option>
+										  <option value="payee11">Servus Mastercard - **** 5545</option>
+										  <option value="payee12">Telus - 123456787 (Calagary  Office)</option>
+										  <option value="payee13">Telus - 123456788 (Edmonton NW Office)</option>
+										  <option value="payee14">Telus - 123456789 (Edmonton SE Office)</option>
+										</select>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6 offset-md-6">
+                                                            <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
+                                            nonSelectedListLabel: 'Materiales disponibles',
+                                            selectedListLabel: 'Materiales seleccionados',
+                                            preserveSelectionOnMove: 'moved',
+                                            moveAllLabel: 'Move all',
+                                            removeAllLabel: 'Remove all'
+                                        });
+                                        $("#demoform").submit(function() {
+                                            alert($('[name="duallistbox_demo1[]"]').val());
+                                            return false;
+                                        });
+                                    </script>
+                                </div>
+
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input type="button" class="btn btn-primary" value="Guardar lista">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="formmat" role="tabpanel" aria-labelledby="formmat-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Agregar pedido</h4>
+                        </div>
+                        <div class="card-body row-fluid">
+
+                            <form class="form" role="formmat" autocomplete="off">
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Código pedido</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Fecha pedido</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row" style="justify-content: center;">
+                                    <label for="sel1" class="col-lg-3 col-form-label form-control-label">Materiales</label>
+                                    <div class="container">
+                                        <div class="row text-center" style="margin-bottom: 40px; align-items: center;">
+                                            <div class="col">
+                                                <form id="pform">
+                                                    <select multiple="multiple" size="10" name="duallistbox_demo1[]" title="duallistbox_demo1[]" style="margin-top: 100px;">
+										  <option value="payee1">Aviva Insurance - Business - 987654</option>
+										  <option value="payee2">Bell Mobility - 66853 (John Smith)</option>
+										  <option value="payee3">Bell Mobility - 75432 (Jane Smith)</option>
+										  <option value="payee4">Bell Mobility - 98765 (Jim Smith)</option>
+										  <option value="payee5">Canadian Tire Commercial Mastercard - **** 5525</option>
+										  <option value="payee6">Canadian Tire Mastercard - **** 3158 (President's Card)</option>
+										  <option value="payee7">FedEx Express Canada - 54321</option>
+										  <option value="payee8">Lowes Canada - 12345</option>
+										  <option value="payee9">Mastercard, PC Financial - **** 5535</option>
+										  <option value="payee10">Qtrade Investor - 12345</option>
+										  <option value="payee11">Servus Mastercard - **** 5545</option>
+										  <option value="payee12">Telus - 123456787 (Calagary  Office)</option>
+										  <option value="payee13">Telus - 123456788 (Edmonton NW Office)</option>
+										  <option value="payee14">Telus - 123456789 (Edmonton SE Office)</option>
+										</select>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-6 offset-md-6">
+                                                            <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" field col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input type="button" class="btn btn-primary" value="Guardar pedido">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // make it as accordion for smaller screens
+            if (window.innerWidth > 992) {
+
+                document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem) {
+
+                    everyitem.addEventListener('mouseover', function(e) {
+
+                        let el_link = this.querySelector('a[data-bs-toggle]');
+
+                        if (el_link != null) {
+                            let nextEl = el_link.nextElementSibling;
+                            el_link.classList.add('show');
+                            nextEl.classList.add('show');
+                        }
+
+                    });
+                    everyitem.addEventListener('mouseleave', function(e) {
+                        let el_link = this.querySelector('a[data-bs-toggle]');
+
+                        if (el_link != null) {
+                            let nextEl = el_link.nextElementSibling;
+                            el_link.classList.remove('show');
+                            nextEl.classList.remove('show');
+                        }
+
+
+                    })
+                });
+
+            }
+        });
+
+        $(' .navbar-nav a').on('click', function() {
+            $('.navbar-nav').find('a.active').removeClass('active');
+            $(this).parent('a').addClass('active');
+        });
+
+        $('#my-select').multiSelect();
+    </script>
+</body>
+
+</html>
