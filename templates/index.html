@@ -130,16 +130,16 @@
                                         {% for cliente in clientes %}
                                         <tr>
 
-                                            <td>{{ cliente.ccod}} </th>
-                                                <td>{{ cliente.cfechac}}</td>
-                                                <td>{{ cliente.cnombre}}</td>
-                                                <td>{{ cliente.cnfiscal}}</td>
-                                                <td>{{ cliente.cdcfiscal}}</td>
-                                                <td>{{ cliente.cdcdespacho}}</td>
-                                                <td>{{ cliente.climite}}</td>
-                                                <td>
-                                                    <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
-                                                </td>
+                                            <td>{{ cliente.ccod}} </td>
+                                            <td>{{ cliente.cfechac}}</td>
+                                            <td>{{ cliente.cnombre}}</td>
+                                            <td>{{ cliente.cnfiscal}}</td>
+                                            <td>{{ cliente.cdcfiscal}}</td>
+                                            <td>{{ cliente.cdcdespacho}}</td>
+                                            <td>{{ cliente.climite}}</td>
+                                            <td>
+                                                <a href="{% url 'editar_cliente' cliente.ccod %}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+                                            </td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>

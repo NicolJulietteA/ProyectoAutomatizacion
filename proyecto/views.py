@@ -26,3 +26,20 @@ def crearCliente(request):
             form.save()
             return redirect('index')
     return render(request,'index.html',contexto)
+
+def editarCliente(request,id):
+    ecliente = cliente.objects.get(ccod = id)
+    if request.method == 'GET':
+        form = clienteForm(instance = ecliente)
+        contexto = {
+            'form':form
+        }
+    else:
+        form = clienteForm(request.POST, instance = cliente)
+        contexto = {
+            'form':form
+        }
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request,'editar_cliente.html',contexto)
